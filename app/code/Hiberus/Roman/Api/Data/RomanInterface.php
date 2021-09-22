@@ -11,11 +11,6 @@ interface RomanInterface extends ExtensibleDataInterface
 
     const COLUMN_ID = 'entity_id';
 
-    const FIRST_NAME = 'firstname';
-
-    const LAST_NAME = 'lastname';
-
-    const MARK = 'mark';
     /**
      * @return int
      */

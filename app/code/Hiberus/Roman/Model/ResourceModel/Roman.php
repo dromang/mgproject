@@ -21,7 +21,7 @@ class Roman extends AbstractDb
     /**
      *
      */
-    protected function __construct(Context $context,
+    public function __construct(Context $context,
                                     MetadataPool $metadataPool,
                                     EntityManager $entityManager,
                                     $connectionName = null)
@@ -37,7 +37,6 @@ class Roman extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init(RomanInterface::TABLE_NAME, RomanInterface::COLUMN_ID,
-            RomanInterface::FIRST_NAME, RomanInterface::LAST_NAME, RomanInterface::MARK);
+        $this->_init(RomanInterface::TABLE_NAME, RomanInterface::COLUMN_ID);
     }
 }

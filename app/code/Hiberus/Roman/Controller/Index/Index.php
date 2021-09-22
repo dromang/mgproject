@@ -3,7 +3,6 @@ namespace Hiberus\Roman\Controller\Index;
 
 use Hiberus\Roman\Api\RomanRepositoryInterface;
 use Hiberus\Roman\Api\Data\RomanInterfaceFactory;
-use Hiberus\Roman\Model\RomanFactory;
 use Hiberus\Roman\Model\ResourceModel\Roman;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;

@@ -4,25 +4,29 @@ namespace Hiberus\Roman\Block;
 
 use Hiberus\Roman\Api\RomanRepositoryInterface;
 use Hiberus\Roman\Model\Roman;
+use Hiberus\Roman\Model\ResourceModel\Roman as ResourceRoman;
 use Hiberus\Roman\Api\Data\RomanInterfaceFactory;
+use Hiberus\Roman\Model\RomanRepository;
+use \Magento\Framework\Registry;
+use Magento\Framework\View\Element\Template\Context;
 
 class Index extends \Magento\Framework\View\Element\Template
 {
 
-    protected $registry;
-    protected $curso;
-    protected $cursoRepository;
-    protected $cursoInterfaceFactory;
-    protected $cursoResource;
+    protected Registry $registry;
+    protected Roman $roman;
+    protected RomanRepositoryInterface $romanRepository;
+    protected RomanInterfaceFactory $romanInterfaceFactory;
+    protected ResourceRoman $romanResource;
 
     public function __construct(
-        \Magento\Framework\View\Element\Template\Context $context,
-        \Magento\Framework\Registry $registry,
-        Roman $roman,
-        RomanRepositoryInterface $romanRepository,
-        RomanInterfaceFactory $romanInterfaceFactory,
-        \Hiberus\Roman\Model\ResourceModel\Roman $romanResource,
-        array $data = []
+                                Context $context,
+                                Registry $registry,
+                                Roman $roman,
+                                RomanRepositoryInterface $romanRepository,
+                                RomanInterfaceFactory $romanInterfaceFactory,
+                                ResourceRoman $romanResource,
+                                array $data = []
     ) {
         $this->registry = $registry;
         $this->roman = $roman;
