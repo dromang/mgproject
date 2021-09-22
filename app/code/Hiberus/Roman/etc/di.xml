@@ -9,4 +9,18 @@
             </argument>
         </arguments>
     </type>
+
+    <preference for="Hiberus\Roman\Api\Data\RomanInterface" type="Hiberus\Roman\Model\Roman"/>
+    <preference for="Hiberus\Roman\Api\RomanRepositoryInterface" type="Hiberus\Roman\Model\RomanRepository"/>
+
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Hiberus\Roman\Api\Data\RomanInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Hiberus\Roman\Api\Data\RomanInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Hiberus\Roman\Api\Data\RomanInterface::COLUMN_ID</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>

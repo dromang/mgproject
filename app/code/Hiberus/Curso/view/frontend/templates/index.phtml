@@ -1,0 +1,11 @@
+<?php
+
+/**
+* @var \Hiberus\Curso\Block\Index $block
+*/
+$alumno = $block->getAlumno();
+
+?>
+
+<h2>Nombre Alumno: <?= $alumno->getNombre() . ' ' . $alumno->getApellido(); ?></h2>
+<p>Creado en: <?= $alumno->getCreatedAt(); ?></p>

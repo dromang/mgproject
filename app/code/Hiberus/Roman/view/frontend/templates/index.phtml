@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @var \Hiberus\Roman\Block\Index $block
+ */
+
+$alumn = $block->getAlumn();
+
+?>
+<h2 class="title">NOTAS EXAM</h2>
+<?php
+foreach ($alumn as $value){
+?>
+<ul>
+    <li>Nombre: <?= $value->getFirstname() ?></li>
+    <li>Apellido: <?= $value->getLastname() ?></li>
+    <li>Nota: <?= $value->getMark() ?></li>
+</ul>
+<?php } ?>
