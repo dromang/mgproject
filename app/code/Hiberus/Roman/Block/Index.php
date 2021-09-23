@@ -1,7 +1,7 @@
 <?php
 
 namespace Hiberus\Roman\Block;
-
+use Hiberus\Roman\Api\Data\RomanInterface;
 use Hiberus\Roman\Api\RomanRepositoryInterface;
 use Hiberus\Roman\Model\Roman;
 use Hiberus\Roman\Model\ResourceModel\Roman as ResourceRoman;
@@ -38,9 +38,8 @@ class Index extends \Magento\Framework\View\Element\Template
 
     public function getAlumn() {
 
-        $newAlumn = $this->addAlumn('Daniel', 'Roman', '2.0');
-
-        return $this->romanRepository->getById($newAlumn);
+        $newAlumn = $this->romanInterfaceFactory->create();
+        return $newAlumn->getCollection();
 
     }
 

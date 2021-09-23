@@ -4,16 +4,16 @@
  * @var \Hiberus\Roman\Block\Index $block
  */
 
-$alumn = $block->getAlumn();
+$Alumns= $block->getAlumn();
 
 ?>
 <h2 class="title">NOTAS EXAM</h2>
 <?php
-foreach ($alumn as $value){
+foreach ($Alumns as $alumn){
 ?>
 <ul>
-    <li>Nombre: <?= $value->getFirstname() ?></li>
-    <li>Apellido: <?= $value->getLastname() ?></li>
-    <li>Nota: <?= $value->getMark() ?></li>
+    <li>Nombre: <?= $alumn->getFirstname(); ?></li>
+    <li>Apellido: <?= $alumn->getLastname(); ?></li>
+    <li>Nota: <?= $alumn->getMark(); ?></li>
 </ul>
 <?php } ?>

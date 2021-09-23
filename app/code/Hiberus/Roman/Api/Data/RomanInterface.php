@@ -4,7 +4,6 @@ namespace Hiberus\Roman\Api\Data;
 
 use Magento\Framework\Api\ExtensibleDataInterface;
 
-
 interface RomanInterface extends ExtensibleDataInterface
 {
     const TABLE_NAME = 'hiberus_exam';
@@ -25,13 +24,13 @@ interface RomanInterface extends ExtensibleDataInterface
     /**
      * @return string
      */
-    public function getFirstName();
+    public function getFirstname();
 
     /**
      * @param $firstname
      * @return $this
      */
-    public function setFirstName($firstname);
+    public function setFirstname($firstname);
 
     /**
      * @return string

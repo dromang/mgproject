@@ -26,16 +26,16 @@ class Roman extends AbstractModel implements RomanInterface
     /**
      * @inheritDoc
      */
-    public function getFirstName()
+    public function getFirstname()
     {
-        return $this->getFirstName('firstname');
+        return $this->getData('firstname');
 
     }
 
     /**
      * @inheritDoc
      */
-    public function setFirstName($firstname)
+    public function setFirstname($firstname)
     {
         return $this->setData('firstname', $firstname);
     }
@@ -45,7 +45,7 @@ class Roman extends AbstractModel implements RomanInterface
      */
     public function getLastname()
     {
-        return $this->getLastName('lastname');
+        return $this->getData('lastname');
     }
 
     /**
@@ -61,7 +61,7 @@ class Roman extends AbstractModel implements RomanInterface
      */
     public function getMark()
     {
-        return $this->getMark('mark');
+        return $this->getData('mark');
     }
 
     /**

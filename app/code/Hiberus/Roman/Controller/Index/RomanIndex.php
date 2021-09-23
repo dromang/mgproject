@@ -11,7 +11,7 @@ use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index implements HttpGetActionInterface
+class RomanIndex implements HttpGetActionInterface
 {
     protected PageFactory $pageFactory;
     protected RomanInterfaceFactory $romanInterfaceFactory;
