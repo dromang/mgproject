@@ -58,4 +58,15 @@ class Index extends \Magento\Framework\View\Element\Template
 
     }
 
+    public function averageMarks(){
+        $mark = $this->romanInterfaceFactory->create();
+        $total = $mark->getCollection();
+        $marks = [];
+        foreach ($total as $value){
+            $marks[] = $value->getMark();
+        }
+        $avgMark = array_sum($marks)/count($marks);
+        return $avgMark;
+    }
+
 }
