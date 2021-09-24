@@ -3,21 +3,27 @@
 /**
  * @var \Hiberus\Roman\Block\Index $block
  */
-
-$alumns= $block->getAlumn();
+//$block->addAlumn();
+$alumns = $block->getAlumn();
 $marks = $block->averageMarks();
+
 ?>
-<div>
+
 <h2 class="title">NOTAS EXAM</h2>
-    <div class="alumns">
+<div class="alumns">
     <button id="alerta">Highest Mark</button>
+
 <?php
 foreach ($alumns as $alumn){
-    ?>
+    if($alumn->getMark() > 4.9){
+    $class = "pass";
+    }else{
+    $class = "notpass";
+    } ?>
 <ul>
-    <li><b>Nombre:</b> <?= $alumn->getFirstname(); ?></li>
-    <li><b>Apellido:</b> <?= $alumn->getLastname(); ?></li>
-    <li id="mark"><b>Nota:</b> <?= $alumn->getMark(); ?></li>
+    <li><b>Nombre:</b> <?= $alumn->getFirstname() ?></li>
+    <li><b>Apellido:</b> <?= $alumn->getLasname() ?></li>
+    <li id="mark" class="<?= $class ?>"><b>Nota:</b> <?= $alumn->getMark() ?></li>
 </ul>
 <?php } ?>
 <p>Total number of students: <b><?= count($alumns) ?></b></p>
@@ -26,4 +32,4 @@ foreach ($alumns as $alumn){
     <div>
         <h3>Media de notas: <b><?= $marks ?></b></h3>
     </div>
-</div>
+

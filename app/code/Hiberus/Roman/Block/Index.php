@@ -43,20 +43,24 @@ class Index extends \Magento\Framework\View\Element\Template
 
     }
 
-    /**
-     * @throws \Magento\Framework\Exception\AlreadyExistsException
-     */
-    public function addAlumn($firstname, $lastname, $mark) {
-
-        $alumn = $this->romanInterfaceFactory->create();
-        $alumn->setFirstname($firstname);
-        $alumn->setLastname($lastname);
-        $alumn->setMark($mark);
-
-        $this->romanResource->save($alumn);
-        return $alumn->getEntityId();
-
-    }
+//    /**
+//     * @throws \Magento\Framework\Exception\AlreadyExistsException
+//     */
+//    public function addAlumn() {
+//
+//
+//        $alummns = array('Daniel'=> 'Roman', 'Francisco' => 'Ruiz', 'Angel' => 'Sanchez', 'Javier' => 'Garcia', 'Pablo' => 'Cuesta', 'David' => 'Fernandez');
+//
+//
+//
+//            foreach ($alummns as $key => $value){
+//                $alumn = $this->romanInterfaceFactory->create();
+//                $alumn->setFirstname($key);
+//                $alumn->setLastname($value);
+//                $alumn->setMark(rand(1, 10));
+//                $this->romanResource->save($alumn);
+//            }
+//    }
 
     public function averageMarks(){
         $mark = $this->romanInterfaceFactory->create();

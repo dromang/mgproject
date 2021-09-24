@@ -1,14 +1,4 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
-<type name="Magento\Catalog\Model\Product">
-<plugin name="description_plugin" type="Hiberus\Roman\Plugin\Catalog\DescriptionPlugin" sortOrder="10" disabled="false" />
-</type>
-    <type name="Magento\Framework\Console\CommandListInterface">
-        <arguments>
-            <argument name="commands" xsi:type="array">
-            <item name="comando-autor" xsi:type="object">Hiberus\Curso\Console\AuthorsCommand</item>
-            </argument>
-        </arguments>
-    </type>
 
     <preference for="Hiberus\Roman\Api\Data\RomanInterface" type="Hiberus\Roman\Model\Roman"/>
     <preference for="Hiberus\Roman\Api\RomanRepositoryInterface" type="Hiberus\Roman\Model\RomanRepository"/>
@@ -23,4 +13,9 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="Hiberus\Roman\Model\Roman">
+        <plugin name="mark_plugin" type="Hiberus\Roman\Plugin\Mark\MarkPlugin" sortOrder="10"  />
+    </type>
+
 </config>
