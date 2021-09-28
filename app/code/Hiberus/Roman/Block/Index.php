@@ -9,7 +9,8 @@ use Hiberus\Roman\Api\Data\RomanInterfaceFactory;
 use Hiberus\Roman\Model\RomanRepository;
 use \Magento\Framework\Registry;
 use Magento\Framework\View\Element\Template\Context;
-
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Store\Model\ScopeInterface;
 class Index extends \Magento\Framework\View\Element\Template
 {
 
@@ -18,6 +19,7 @@ class Index extends \Magento\Framework\View\Element\Template
     protected RomanRepositoryInterface $romanRepository;
     protected RomanInterfaceFactory $romanInterfaceFactory;
     protected ResourceRoman $romanResource;
+    protected $scopeConfig;
 
     public function __construct(
                                 Context $context,
@@ -26,6 +28,7 @@ class Index extends \Magento\Framework\View\Element\Template
                                 RomanRepositoryInterface $romanRepository,
                                 RomanInterfaceFactory $romanInterfaceFactory,
                                 ResourceRoman $romanResource,
+                                scopeConfigInterface $scopeConfig,
                                 array $data = []
     ) {
         $this->registry = $registry;
@@ -33,6 +36,7 @@ class Index extends \Magento\Framework\View\Element\Template
         $this->romanRepository = $romanRepository;
         $this->romanInterfaceFactory = $romanInterfaceFactory;
         $this->romanResource = $romanResource;
+        $this->scopeConfig = $scopeConfig;
         parent::__construct($context, $data);
     }
 
@@ -43,6 +47,45 @@ class Index extends \Magento\Framework\View\Element\Template
 
     }
 
+    public function getElements() {
+        $elements = $this->scopeConfig->getValue( 'hiberus_exam/general/element_general', ScopeInterface::SCOPE_STORE);
+        return $elements;
+    }
+
+
+    public function getMark() {
+        $mark = $this->scopeConfig->getValue( 'hiberus_exam/general/num_general', ScopeInterface::SCOPE_STORE);
+        if(is_null($mark)){
+            $mark = 5;
+        }
+        return $mark;
+    }
+    public function getHighestMarks(){
+        $res=$this->getAlumn();
+        $marks=[];
+        $hMarks=[];
+        foreach ($res as $item){
+            $marks[]=$item->getMark();
+        }
+        rsort($marks);
+        foreach ($marks as $mark){
+            if(count($hMarks)<3){
+                $hMarks[]=$mark;
+            }
+        }
+        return $hMarks;
+    }
+
+    public function getHighestMark() {
+        $alumns = $this->romanInterfaceFactory->create()->getCollection()->getData();
+        $maxMark = 0;
+        foreach ($alumns as $alumn) {
+            if ($alumn['mark'] > $maxMark) {
+                $maxMark = $alumn['mark'];
+            }
+        }
+        return $maxMark;
+    }
 //    /**
 //     * @throws \Magento\Framework\Exception\AlreadyExistsException
 //     */

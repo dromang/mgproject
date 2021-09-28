@@ -6,16 +6,25 @@
 //$block->addAlumn();
 $alumns = $block->getAlumn();
 $marks = $block->averageMarks();
+$maxMarks=$block->getHighestMarks();
+$minMark = $block->getMark();
+$elements = $block->getElements();
+$i = 0;
 
 ?>
 
 <h2 class="title">NOTAS EXAM</h2>
-<div class="alumns">
+<div class="btns">
     <button id="alerta">Highest Mark</button>
+    <button id="btnDisplay">Show/Hide</button>
+</div>
+<div id="alumns" class="alumns">
 
 <?php
-foreach ($alumns as $alumn){
-    if($alumn->getMark() > 4.9){
+foreach ($alumns as $alumn)
+{
+    if ($i++ == $elements) break;
+    if($alumn->getMark() > $minMark){
     $class = "pass";
     }else{
     $class = "notpass";
@@ -26,10 +35,23 @@ foreach ($alumns as $alumn){
     <li id="mark" class="<?= $class ?>"><b>Nota:</b> <?= $alumn->getMark() ?></li>
 </ul>
 <?php } ?>
+</div>
 <p>Total number of students: <b><?= count($alumns) ?></b></p>
-    </div>
+
 
     <div>
         <h3>Media de notas: <b><?= $marks ?></b></h3>
     </div>
 
+<script>
+    let hMark = <?= $block->getHighestMark() ?>
+</script>
+<script>
+    require(['jquery', 'alertHighestMark'], function($, alertHighestMark) {
+        alertHighestMark('#alerta');
+    });
+    require(['jquery', 'btnDisplay'], function($, btndisplay) {
+        btndisplay('#btnDisplay', '#alumns');
+    });
+
+</script>

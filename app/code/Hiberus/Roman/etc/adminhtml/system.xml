@@ -5,17 +5,18 @@
     <tab id="hiberus" sortOrder="999" translate="label">
         <label>Hiberus</label>
     </tab>
-    <section id="hiberus_description" showInDefault="1" sortOrder="10">
-        <label>Hiberus Description</label>
+    <section id="hiberus_exam" showInDefault="1" sortOrder="10">
+        <label>Hiberus Exam</label>
         <tab>hiberus</tab>
         <resource>Hiberus_Roman::config</resource>
         <group id="general" showInDefault="1" sortOrder="10">
-            <label>Description</label>
-            <field id="description_general" type="text" showInDefault="1" sortOrder="10">
-                <label>Description General</label>
+            <label>Config</label>
+            <field id="element_general" type="text" showInDefault="1" sortOrder="10">
+                <label>Element General</label>
+                <validate>integer</validate>
             </field>
             <field id="num_general" type="text" showInDefault="1" sortOrder="10">
-                <label>Numero general</label>
+                <label>Aprobado general</label>
                 <validate>validate-number</validate>
             </field>
         </group>
