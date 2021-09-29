@@ -15,8 +15,18 @@ $i = 0;
 
 <h2 class="title">NOTAS EXAM</h2>
 <div class="btns">
+    <!-- Se comprueba si hay elementos para poner los botones en disabled -->
+    <?php
+    if ($elements != 0){ ?>
     <button id="alerta">Highest Mark</button>
     <button id="btnDisplay">Show/Hide</button>
+   <?php
+    } else { ?>
+        <button id="alerta" disabled>Highest Mark</button>
+    <button id="btnDisplay" disabled>Show/Hide</button>
+    <?php }
+    ?>
+
 </div>
 <div id="alumns" class="alumns">
 
@@ -47,9 +57,11 @@ foreach ($alumns as $alumn)
     let hMark = <?= $block->getHighestMark() ?>
 </script>
 <script>
+
     require(['jquery', 'alertHighestMark'], function($, alertHighestMark) {
         alertHighestMark('#alerta');
     });
+
     require(['jquery', 'btnDisplay'], function($, btndisplay) {
         btndisplay('#btnDisplay', '#alumns');
     });
