@@ -22,7 +22,7 @@ $i = 0;
     <button id="btnDisplay">Show/Hide</button>
    <?php
     } else { ?>
-        <button id="alerta" disabled>Highest Mark</button>
+    <button id="alerta" disabled>Highest Mark</button>
     <button id="btnDisplay" disabled>Show/Hide</button>
     <?php }
     ?>
@@ -34,11 +34,12 @@ $i = 0;
 foreach ($alumns as $alumn)
 {
     if ($i++ == $elements) break;
-    if($alumn->getMark() > $minMark){
-    $class = "pass";
-    }else{
-    $class = "notpass";
+        if($alumn->getMark() > $minMark){
+        $class = "pass";
+        }else{
+        $class = "notpass";
     } ?>
+
 <ul>
     <li><b>Nombre:</b> <?= $alumn->getFirstname() ?></li>
     <li><b>Apellido:</b> <?= $alumn->getLasname() ?></li>

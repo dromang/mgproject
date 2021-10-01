@@ -60,6 +60,7 @@ class Index extends \Magento\Framework\View\Element\Template
         }
         return $mark;
     }
+
     public function getHighestMarks(){
         $res=$this->getAlumn();
         $marks=[];
@@ -86,6 +87,8 @@ class Index extends \Magento\Framework\View\Element\Template
         }
         return $maxMark;
     }
+
+    // METODO QUE UTILIZO PARA INSERTAR ALUMNOS (Solo lo uso una vez)
 //    /**
 //     * @throws \Magento\Framework\Exception\AlreadyExistsException
 //     */
